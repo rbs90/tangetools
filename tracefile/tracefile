@@ -37,6 +37,11 @@ while(<IN>) {
 	if($opt::unique and $seen{$file}++) {
 	    $print = 0;
 	}
+	if( -e $file){ # File exists
+		print "[X]"
+	}else {
+		print "[ ]"	
+	}	
 	$print and print $file,"\n";
     }
 }
@@ -133,6 +138,5 @@ sub error {
     my $prog = $Global::progname || "tracefile";
     print $fh $prog, ": Error: ", @w;
 }
-
 
 
